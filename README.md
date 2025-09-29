@@ -16,14 +16,23 @@ Cálculo de totais com cupons
 
 📁 Estrutura do Projeto
 cypress/
+
 ├─ e2e/
-│  ├─ login.cy.js
-│  ├─ addCart.cy.js
-│  ├─ checkout.cy.js
-│  └─ coupons.cy.js
+
+  │  ├─ login.cy.js
+  
+  │  ├─ addCart.cy.js
+  
+  │  ├─ checkout.cy.js
+  
+  │  └─ coupons.cy.js
+
 ├─ support/
+
 │  ├─ commands.js      # comandos customizados (login, addProduct, applyCoupon)
+
 │  └─ e2e.js
+
 cypress.config.js
 package.json
 README.md
@@ -45,6 +54,7 @@ O frontend rodando em http://localhost:3000 (ou ajustado no baseUrl do Cypress)
 Clone o projeto:
 
 git clone: https://github.com/lucasbuff04/BIX-Tecnologia-TesteQA.git
+
 cd BIX-Tecnologia-TesteQA
 
 
@@ -57,6 +67,7 @@ yarn install
 🔧 Configuração do Cypress
 
 No arquivo cypress.config.js você deve definir o baseUrl da sua aplicação, por exemplo:
+
 import { defineConfig } from "cypress";
 
 export default defineConfig({
@@ -70,15 +81,25 @@ export default defineConfig({
 });
 
 🚀 Rodando os testes
+
 npx cypress open
+
 1️⃣ Abrir Cypress UI
+
 - Seleciona o spec que deseja rodar (login.cy.js, addCart.cy.js, checkout.cy.js, coupons.cy.js)
+- 
 - Testes rodam em tempo real no navegador, você pode acompanhar os cliques, inputs e asserts.
+  
 2️⃣ Rodar todos os testes em headless (linha de comando)
+
 npx cypress run
+
 -Executa todos os testes no Chrome headless (ou outro navegador configurado)
+
 - Gera relatório no terminal.
+  
 3️⃣ Rodar testes específicos
+
 - npx cypress run --spec "cypress/e2e/login.cy.js"
 
 📌 Dicas de uso
@@ -92,9 +113,15 @@ Campos de input são sempre limpos antes de digitar (clear()) para evitar falhas
 Use os comandos customizados (cy.login, cy.loginRequest) para manter testes legíveis e DRY.
 
 🧪 Cobertura de testes
+
 Funcionalidade	Testes
+
 Login UI	Login bem-sucedido, Logout
+
 Login API	Sem email, sem senha, credenciais inválidas
+
 Carrinho	Adicionar 1 ou múltiplos itens, validar estoque, validar total
+
 Cupons	Válidos, expirados, inválidos, validar desconto e total
+
 Checkout	Estoque decrementa corretamente, total correto com cupom aplicado
